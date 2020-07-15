@@ -13,7 +13,7 @@ import java.util.Map;
 @Slf4j
 public class MyRepoListRepository {
 
-    private static final String URL = "https://api.github.com/users/annapostek/repos";
+    private static final String URL = "https://api.github.com/users/{user}/repos";
 
     private final RestTemplate restTemplate;
     private final String repositories;

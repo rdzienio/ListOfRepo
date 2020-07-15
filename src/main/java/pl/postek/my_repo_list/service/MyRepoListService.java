@@ -2,6 +2,7 @@ package pl.postek.my_repo_list.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import pl.postek.my_repo_list.domain.ListOfRepo;
 import pl.postek.my_repo_list.repository.MyRepoListRepository;
 
 import java.io.Serializable;
@@ -20,8 +21,8 @@ public class MyRepoListService {
        return repository.readRawJson();
     }
 
-    public Serializable getRepository(String[] repositories) {
-        Serializable serializable = repository.readRepository(repositories);
+    public ListOfRepo[] getRepository(String[] repositories) {
+        ListOfRepo[] serializable = repository.readRepository(repositories);
         log.info("repositories: [{}]", serializable);
         return serializable;
     }

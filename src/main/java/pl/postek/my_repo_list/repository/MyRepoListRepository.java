@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
+import pl.postek.my_repo_list.domain.ListOfRepo;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -13,7 +14,7 @@ import java.util.Map;
 @Slf4j
 public class MyRepoListRepository {
 
-    private static final String URL = "https://github.com/{user}?tab=repositories";
+    private static final String URL = "https://api.github.com/users/annapostek/repos";
 
     private final RestTemplate restTemplate;
     private final String[] repositories;
@@ -29,11 +30,11 @@ public class MyRepoListRepository {
         return restTemplate.getForObject(URL, String.class);
     }
 
-    public Serializable readRepository (String[] repositories) {
+    public ListOfRepo[] readRepository (String[] repositories) {
         Map<String, String> param = Map.of(
                 "user", "AnnaPostek"
         );
-        ResponseEntity<String[]> response = restTemplate.getForEntity(URL, String[].class, param);
+        ResponseEntity<ListOfRepo[]> response = restTemplate.getForEntity(URL, ListOfRepo[].class, param);
         log.info("response:[{}]",response);
         log.info("response status :[{}]",response.getStatusCode());
         response.getHeaders()
@@ -41,7 +42,7 @@ public class MyRepoListRepository {
         if (response.getStatusCode().is2xxSuccessful()) {
             return response.getBody();
         }
-        return "{}";
+        return null;
     }
 
 }

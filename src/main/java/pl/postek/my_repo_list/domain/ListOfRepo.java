@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ListOfRepo {
 
-    private String repoName;
+    private String name;
 }

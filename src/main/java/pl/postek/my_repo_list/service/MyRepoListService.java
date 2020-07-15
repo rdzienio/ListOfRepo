@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import pl.postek.my_repo_list.domain.ListOfRepo;
 import pl.postek.my_repo_list.repository.MyRepoListRepository;
 
-import java.io.Serializable;
-
 @Service
 @Slf4j
 public class MyRepoListService {

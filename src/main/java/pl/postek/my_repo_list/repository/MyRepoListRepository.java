@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 import pl.postek.my_repo_list.domain.ListOfRepo;
 
-import java.io.Serializable;
 import java.util.Map;
 
 @Repository
@@ -17,10 +16,10 @@ public class MyRepoListRepository {
     private static final String URL = "https://api.github.com/users/annapostek/repos";
 
     private final RestTemplate restTemplate;
-    private final String[] repositories;
+    private final String repositories;
 
     public MyRepoListRepository(final RestTemplate restTemplate,
-                                @Value("${user.name}") final String[] repositories) {
+                                @Value("${user.repo.name}") final String repositories) {
         this.restTemplate = restTemplate;
         this.repositories = repositories;
         log.info("user.name [{}]", repositories);

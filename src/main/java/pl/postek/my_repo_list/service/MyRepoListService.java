@@ -19,9 +19,9 @@ public class MyRepoListService {
        return repository.readRawJson();
     }
 
-    public ListOfRepo[] getRepository(String[] repositories) {
-        ListOfRepo[] serializable = repository.readRepository(repositories);
-        log.info("repositories: [{}]", serializable);
-        return serializable;
+    public ListOfRepo[] getRepository() {
+        ListOfRepo[] repos = repository.readRepository();
+        log.info("repositories: [{}]", repos);
+        return repos;
     }
 }

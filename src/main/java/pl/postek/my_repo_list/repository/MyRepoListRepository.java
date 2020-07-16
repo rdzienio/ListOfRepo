@@ -29,7 +29,7 @@ public class MyRepoListRepository {
         return restTemplate.getForObject(URL, String.class);
     }
 
-    public ListOfRepo[] readRepository (String[] repositories) {
+    public ListOfRepo[] readRepository () {
         Map<String, String> param = Map.of(
                 "user", "AnnaPostek"
         );
